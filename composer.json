@@ -1,0 +1,12 @@
+{
+    "name": "sebcodes/php-discord-bot",
+    "authors": [
+        {
+            "name": "sebcodes",
+            "email": "info@sebastian-kiefer.com"
+        }
+    ],
+    "require": {
+        "team-reflex/discord-php": "^5.0"
+    }
+}
