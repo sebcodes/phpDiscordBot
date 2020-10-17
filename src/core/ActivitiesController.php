@@ -17,13 +17,18 @@ use \Discord\Parts\User\Activity;
 
 class ActivitiesController
 {
-    public static function run(Discord $discord)
+    public static function run(Discord $discord,String $shuffle)
     {
+        if (!is_callable($discord)) throw new \Exception('Discord Instance is not callable');
         //set game
         $activity = $discord->factory(Activity::class, [
             'type' => Activity::TYPE_STREAMING,
-            'name' => 'with Camys Mother',
+            'name' => $shuffle,
         ]);
-        $discord->updatePresence($activity, false, Activity::STATUS_ONLINE, false);
+        try {
+            $discord->updatePresence($activity, false, Activity::STATUS_ONLINE, false);
+        } catch (\Exception $e) {
+            throw new \Exception('Cannot update Presence! Message: '.$e->getMessage());
+        }
     }
 }

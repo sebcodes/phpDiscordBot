@@ -7,7 +7,6 @@
  */
 namespace Sebcodes;
 
-use Sebcodes\Core\ActivitiesController;
 use Discord\Parts\User\Activity;
 
 include __DIR__.'/vendor/autoload.php';
@@ -21,12 +20,15 @@ $discord = new \Discord\Discord([
 
 
 
-
+//Bot is ready to run
 $discord->on('ready', function ($discord) {
     echo "Bot is ready.", PHP_EOL;
 
 
-    ActivitiesController::run($discord);
+    while(true){
+        $staten = ['macht nix', 'macht doch was'];
+        \Sebcodes\Core\ActivitiesController::run($discord, shuffle($staten));
+    }
 
     # Listen for events here
     $discord->on('message', function ($message) {
