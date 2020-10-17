@@ -46,6 +46,8 @@ class ComposerStaticInit6b1097d7c58a74b9f2710d3da4f3517e
             'Symfony\\Contracts\\Translation\\' => 30,
             'Symfony\\Component\\Translation\\' => 30,
             'Symfony\\Component\\OptionsResolver\\' => 34,
+            'Sebcodes\\Core\\' => 14,
+            'Sebcodes\\' => 9,
         ),
         'R' => 
         array (
@@ -136,6 +138,14 @@ class ComposerStaticInit6b1097d7c58a74b9f2710d3da4f3517e
         'Symfony\\Component\\OptionsResolver\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/options-resolver',
+        ),
+        'Sebcodes\\Core\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/core',
+        ),
+        'Sebcodes\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
         ),
         'RingCentral\\Psr7\\' => 
         array (
