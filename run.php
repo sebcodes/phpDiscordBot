@@ -7,7 +7,14 @@
  */
 namespace Sebcodes;
 
+use Discord\Factory\Factory;
+use Discord\Parts\Guild\Guild;
 use Discord\Parts\User\Activity;
+use Discord\Repository\UserRepository;
+use Discord\Wrapper\LoggerWrapper;
+use Illuminate\Support\Facades\Log;
+use Monolog\Logger;
+use Sebcodes\Core\ActivitiesController;
 
 include __DIR__.'/vendor/autoload.php';
 
@@ -24,6 +31,8 @@ $discord = new \Discord\Discord([
 $discord->on('ready', function ($discord) {
     echo "Bot is ready.", PHP_EOL;
 
+
+    ActivitiesController::setCommand($discord);
 
     while(true){
         $staten = ['macht nix', 'macht doch was'];

@@ -1,7 +1,9 @@
 <?php
 namespace Sebcodes\Core;
 
+use Discord\CommandClient\Command;
 use \Discord\Discord;
+use Discord\DiscordCommandClient;
 use \Discord\Parts\User\Activity;
 
 /**
@@ -30,5 +32,10 @@ class ActivitiesController
         } catch (\Exception $e) {
             throw new \Exception('Cannot update Presence! Message: '.$e->getMessage());
         }
+    }
+    public static function setCommand(Discord $discord){
+        $comand = new Command(new DiscordCommandClient([]), "/help");
+        $comand->registerSubCommand('/helper');
+        $discord->getLoop();
     }
 }
